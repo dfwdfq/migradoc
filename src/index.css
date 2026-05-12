@@ -110,3 +110,8 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #F3F3F3;
+  color: #2B2B2B;
+}

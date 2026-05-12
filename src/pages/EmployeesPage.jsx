@@ -1,44 +1,10 @@
+// src/pages/EmployeesPage.jsx
 const employeesData = [
-  {
-    id: 1,
-    name: 'Иванов Алишер Рустамович',
-    company: 'ООО РРМ',
-    citizenship: 'Узбекистан',
-    phone: '+7 (999) 123-45-67',
-    email: 'ivanov@example.com',
-    patentExpires: '15.05.2026',
-    documentStatus: 'Требует обновления',
-  },
-  {
-    id: 2,
-    name: 'Каримов Бахтиёр Шухратович',
-    company: 'ООО Миградок',
-    citizenship: 'Таджикистан',
-    phone: '+7 (999) 234-56-78',
-    email: 'karimov@example.com',
-    patentExpires: '14.12.2026',
-    documentStatus: 'Активен',
-  },
-  {
-    id: 3,
-    name: 'Ахмедов Рустам Фархадович',
-    company: 'ООО РРМ',
-    citizenship: 'Узбекистан',
-    phone: '+7 (999) 345-67-89',
-    email: 'akhmedov@example.com',
-    patentExpires: '20.08.2026',
-    documentStatus: 'Активен',
-  },
-  {
-    id: 4,
-    name: 'Юсупов Джамшид Анварович',
-    company: 'ООО СтройПроект',
-    citizenship: 'Таджикистан',
-    phone: '+7 (999) 456-78-90',
-    email: 'yusupov@example.com',
-    patentExpires: '10.05.2026',
-    documentStatus: 'Просрочен',
-  },
+  { id: 1, name: 'Иванов Алишер Рустамович', company: 'ООО РРМ', citizenship: 'Узбекистан', phone: '+7 (999) 123-45-67', email: 'ivanov@example.com', patentExpires: '15.05.2026', documentStatus: 'Требует обновления' },
+  { id: 2, name: 'Каримов Бахтиёр Шухратович', company: 'ООО Миградок', citizenship: 'Таджикистан', phone: '+7 (999) 234-56-78', email: 'karimov@example.com', patentExpires: '14.12.2026', documentStatus: 'Активен' },
+  { id: 3, name: 'Ахмедов Рустам Фархадович', company: 'ООО РРМ', citizenship: 'Узбекистан', phone: '+7 (999) 345-67-89', email: 'akhmedov@example.com', patentExpires: '20.08.2026', documentStatus: 'Активен' },
+  { id: 4, name: 'Юсупов Джамшид Анварович', company: 'ООО СтройПроект', citizenship: 'Таджикистан', phone: '+7 (999) 456-78-90', email: 'yusupov@example.com', patentExpires: '10.05.2026', documentStatus: 'Просрочен' },
+  { id: 5, name: 'Мирзоев Фаррух Олимович', company: 'ООО Миградок', citizenship: 'Узбекистан', phone: '+7 (999) 567-89-01', email: 'mirzoev@example.com', patentExpires: '01.11.2026', documentStatus: 'Активен' },
 ]
 
 const statusStyles = {
@@ -49,103 +15,66 @@ const statusStyles = {
 
 export default function EmployeesPage() {
   return (
-    <div className="space-y-6">
-      {/* Заголовок */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <div className="space-y-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
-          <h2 className="text-3xl font-bold text-slate-900">Сотрудники</h2>
-          <p className="text-slate-500 mt-1">
-            Управление иностранными сотрудниками — 128 человек
-          </p>
+          <h2 className="text-[28px] font-bold text-[#1F1F1F]">Сотрудники</h2>
+          <p className="text-[12px] text-gray-500 mt-1">Управление иностранными сотрудниками — 128 человек</p>
         </div>
-        <div className="flex gap-3 flex-wrap">
-          <button className="px-5 py-3 rounded-2xl border border-slate-300 hover:bg-slate-50 transition text-slate-700">
-            Импорт
-          </button>
-          <button className="px-5 py-3 rounded-2xl border border-slate-300 hover:bg-slate-50 transition text-slate-700">
-            Экспорт XLS
-          </button>
-          <button className="px-5 py-3 rounded-2xl bg-slate-900 text-white hover:bg-slate-800 transition">
-            Добавить сотрудника
-          </button>
+        <div className="flex gap-2">
+          <button className="h-[38px] px-4 border border-migra-border rounded-[2px] text-sm hover:bg-gray-50">Импорт</button>
+          <button className="h-[38px] px-4 border border-migra-border rounded-[2px] text-sm hover:bg-gray-50">Экспорт XLS</button>
+          <button className="h-[38px] px-6 bg-migra-secondary text-white rounded-[2px] text-sm font-medium hover:bg-[#256F63] transition">Добавить сотрудника</button>
         </div>
       </div>
 
-      {/* Поиск и фильтры */}
-      <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-5">
-        <div className="flex flex-wrap gap-3 items-center">
-          <input
-            placeholder="Поиск по ФИО, телефону, email..."
-            className="px-4 py-3 rounded-2xl border border-slate-300 bg-white outline-none focus:ring-2 focus:ring-slate-300 flex-1 min-w-[200px]"
-          />
-          <select className="px-4 py-3 rounded-2xl border border-slate-300 bg-white outline-none focus:ring-2 focus:ring-slate-300 text-slate-700">
-            <option value="">Все компании</option>
-            <option>ООО РРМ</option>
-            <option>ООО Миградок</option>
-            <option>ООО СтройПроект</option>
-          </select>
-          <select className="px-4 py-3 rounded-2xl border border-slate-300 bg-white outline-none focus:ring-2 focus:ring-slate-300 text-slate-700">
-            <option value="">Все гражданства</option>
-            <option>Узбекистан</option>
-            <option>Таджикистан</option>
-            <option>Кыргызстан</option>
-          </select>
-          <select className="px-4 py-3 rounded-2xl border border-slate-300 bg-white outline-none focus:ring-2 focus:ring-slate-300 text-slate-700">
-            <option value="">Все статусы</option>
-            <option>Активен</option>
-            <option>Требует обновления</option>
-            <option>Просрочен</option>
-          </select>
-          <button className="px-4 py-3 rounded-2xl border border-slate-300 hover:bg-slate-50 transition text-slate-600">
-            Сбросить
-          </button>
-        </div>
+      <div className="bg-white border border-migra-border rounded-[2px] px-4 py-3 flex flex-wrap gap-3">
+        <input placeholder="Поиск по ФИО, телефону, email..." className="h-[36px] border border-migra-border rounded-[2px] px-3 text-sm flex-1 min-w-[200px] outline-none focus:border-migra-secondary" />
+        <select className="h-[36px] border border-migra-border rounded-[2px] px-2 text-sm"><option>Все компании</option></select>
+        <select className="h-[36px] border border-migra-border rounded-[2px] px-2 text-sm"><option>Все гражданства</option></select>
+        <select className="h-[36px] border border-migra-border rounded-[2px] px-2 text-sm"><option>Все статусы</option></select>
+        <button className="h-[32px] px-4 border border-migra-border rounded-[2px] text-sm hover:bg-gray-50">Сбросить</button>
       </div>
 
-      {/* Таблица */}
-      <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-        <div className="hidden lg:block overflow-x-auto">
-          <table className="w-full">
+      <div className="bg-white border border-migra-border rounded-[2px] overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-slate-200 bg-slate-50/50">
-                <th className="text-left px-6 py-4 text-sm font-medium text-slate-500">Фото</th>
-                <th className="text-left px-6 py-4 text-sm font-medium text-slate-500">ФИО</th>
-                <th className="text-left px-6 py-4 text-sm font-medium text-slate-500">Компания</th>
-                <th className="text-left px-6 py-4 text-sm font-medium text-slate-500">Гражданство</th>
-                <th className="text-left px-6 py-4 text-sm font-medium text-slate-500">Телефон</th>
-                <th className="text-left px-6 py-4 text-sm font-medium text-slate-500">Email</th>
-                <th className="text-left px-6 py-4 text-sm font-medium text-slate-500">Патент до</th>
-                <th className="text-left px-6 py-4 text-sm font-medium text-slate-500">Статус</th>
-                <th className="text-left px-6 py-4 text-sm font-medium text-slate-500">Действия</th>
+              <tr className="border-b border-[#ECECEC] bg-[#FAFAFA]">
+                <th className="text-left px-4 py-2.5 font-medium text-gray-500">Фото</th>
+                <th className="text-left px-4 py-2.5 font-medium text-gray-500">ФИО</th>
+                <th className="text-left px-4 py-2.5 font-medium text-gray-500">Компания</th>
+                <th className="text-left px-4 py-2.5 font-medium text-gray-500">Гражданство</th>
+                <th className="text-left px-4 py-2.5 font-medium text-gray-500">Телефон</th>
+                <th className="text-left px-4 py-2.5 font-medium text-gray-500">Email</th>
+                <th className="text-left px-4 py-2.5 font-medium text-gray-500">Патент до</th>
+                <th className="text-left px-4 py-2.5 font-medium text-gray-500">Статус</th>
+                <th className="text-left px-4 py-2.5 font-medium text-gray-500">Действия</th>
               </tr>
             </thead>
             <tbody>
               {employeesData.map((emp) => (
-                <tr key={emp.id} className="border-b border-slate-100 hover:bg-slate-50/50 transition">
-                  <td className="px-6 py-4">
-                    <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-medium text-sm">
+                <tr key={emp.id} className="border-b border-[#ECECEC] hover:bg-[#F9F9F9] transition">
+                  <td className="px-4 py-2.5">
+                    <div className="w-8 h-8 rounded-full bg-[#E5E5E5] flex items-center justify-center text-xs font-medium text-gray-600">
                       {emp.name.split(' ')[0][0]}{emp.name.split(' ')[1][0]}
                     </div>
                   </td>
-                  <td className="px-6 py-4 font-medium text-slate-900">{emp.name}</td>
-                  <td className="px-6 py-4 text-slate-600">{emp.company}</td>
-                  <td className="px-6 py-4 text-slate-600">{emp.citizenship}</td>
-                  <td className="px-6 py-4 text-slate-600">{emp.phone}</td>
-                  <td className="px-6 py-4 text-slate-600 text-sm">{emp.email}</td>
-                  <td className="px-6 py-4 text-slate-700">{emp.patentExpires}</td>
-                  <td className="px-6 py-4">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${statusStyles[emp.documentStatus]}`}>
+                  <td className="px-4 py-2.5 font-medium text-gray-800">{emp.name}</td>
+                  <td className="px-4 py-2.5 text-gray-500">{emp.company}</td>
+                  <td className="px-4 py-2.5">{emp.citizenship}</td>
+                  <td className="px-4 py-2.5">{emp.phone}</td>
+                  <td className="px-4 py-2.5 text-xs text-gray-500">{emp.email}</td>
+                  <td className="px-4 py-2.5">{emp.patentExpires}</td>
+                  <td className="px-4 py-2.5">
+                    <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${statusStyles[emp.documentStatus] || 'bg-gray-100 text-gray-600'}`}>
                       {emp.documentStatus}
                     </span>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-4 py-2.5">
                     <div className="flex gap-2">
-                      <button className="px-3 py-2 rounded-xl border border-slate-300 text-sm hover:bg-slate-50 transition">
-                        Открыть
-                      </button>
-                      <button className="px-3 py-2 rounded-xl border border-slate-300 text-sm hover:bg-slate-50 transition">
-                        Ред.
-                      </button>
+                      <button className="h-[32px] px-3 border border-migra-border rounded-[2px] text-xs hover:bg-gray-50">Открыть</button>
+                      <button className="h-[32px] px-3 border border-migra-border rounded-[2px] text-xs hover:bg-gray-50">Ред.</button>
                     </div>
                   </td>
                 </tr>
@@ -153,46 +82,14 @@ export default function EmployeesPage() {
             </tbody>
           </table>
         </div>
-
-        {/* Мобильные карточки */}
-        <div className="lg:hidden divide-y divide-slate-100">
-          {employeesData.map((emp) => (
-            <div key={emp.id} className="p-5 space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-medium text-sm flex-shrink-0">
-                  {emp.name.split(' ')[0][0]}{emp.name.split(' ')[1][0]}
-                </div>
-                <div>
-                  <span className="font-medium text-slate-900 block">{emp.name}</span>
-                  <span className="text-sm text-slate-500">{emp.company}</span>
-                </div>
-                <span className={`ml-auto px-3 py-1 rounded-full text-xs font-medium ${statusStyles[emp.documentStatus]}`}>
-                  {emp.documentStatus}
-                </span>
-              </div>
-              <div className="grid grid-cols-2 gap-2 text-sm">
-                <span className="text-slate-500">Гражданство: <span className="text-slate-700">{emp.citizenship}</span></span>
-                <span className="text-slate-500">Патент до: <span className="text-slate-700">{emp.patentExpires}</span></span>
-                <span className="text-slate-500">Тел: <span className="text-slate-700">{emp.phone}</span></span>
-                <span className="text-slate-500">Email: <span className="text-slate-700 text-xs">{emp.email}</span></span>
-              </div>
-              <div className="flex gap-2">
-                <button className="px-3 py-2 rounded-xl bg-slate-900 text-white text-sm">Открыть</button>
-                <button className="px-3 py-2 rounded-xl border border-slate-300 text-sm">Редактировать</button>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Пагинация */}
-        <div className="flex items-center justify-between px-6 py-4 border-t border-slate-200">
-          <p className="text-sm text-slate-500">Показано 4 из 128 сотрудников</p>
-          <div className="flex gap-2">
-            <button className="px-3 py-2 rounded-xl border border-slate-300 text-sm hover:bg-slate-50 transition disabled:opacity-50" disabled>Назад</button>
-            <button className="px-3 py-2 rounded-xl bg-slate-900 text-white text-sm">1</button>
-            <button className="px-3 py-2 rounded-xl border border-slate-300 text-sm hover:bg-slate-50 transition">2</button>
-            <button className="px-3 py-2 rounded-xl border border-slate-300 text-sm hover:bg-slate-50 transition">3</button>
-            <button className="px-3 py-2 rounded-xl border border-slate-300 text-sm hover:bg-slate-50 transition">Вперед</button>
+        <div className="flex items-center justify-between px-4 py-3 border-t border-[#ECECEC] text-sm">
+          <span className="text-gray-500">Показано 5 из 128 сотрудников</span>
+          <div className="flex gap-1">
+            <button className="h-[32px] px-3 border border-migra-border rounded-[2px] text-xs disabled:opacity-50" disabled>Назад</button>
+            <button className="h-[32px] w-[32px] bg-migra-secondary text-white rounded-[2px] text-xs font-medium">1</button>
+            <button className="h-[32px] w-[32px] border border-migra-border rounded-[2px] text-xs hover:bg-gray-50">2</button>
+            <button className="h-[32px] w-[32px] border border-migra-border rounded-[2px] text-xs hover:bg-gray-50">3</button>
+            <button className="h-[32px] px-3 border border-migra-border rounded-[2px] text-xs hover:bg-gray-50">Вперед</button>
           </div>
         </div>
       </div>

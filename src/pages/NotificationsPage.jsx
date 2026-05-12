@@ -1,101 +1,42 @@
+// src/pages/NotificationsPage.jsx
 const notifications = [
-  {
-    id: 1,
-    title: 'Срок действия патента истекает',
-    description: 'У сотрудника Иванов Алишер Рустамович (ООО РРМ) срок действия патента истекает 15.05.2026.',
-    date: '12.05.2026 09:30',
-    read: false,
-    type: 'warning',
-  },
-  {
-    id: 2,
-    title: 'Просрочен миграционный учет',
-    description: 'У сотрудника Каримов Бахтиёр Шухратович (ООО Миградок) истек срок миграционного учета 14.05.2026.',
-    date: '14.05.2026 08:00',
-    read: false,
-    type: 'danger',
-  },
-  {
-    id: 3,
-    title: 'Документ загружен',
-    description: 'Загружен новый документ "Авансовый платеж" для сотрудника Ахмедов Рустам Фархадович.',
-    date: '10.05.2026 15:20',
-    read: true,
-    type: 'info',
-  },
-  {
-    id: 4,
-    title: 'Задача выполнена',
-    description: 'Задача по обновлению трудового договора для Юсупов Джамшид Анварович отмечена как выполненная.',
-    date: '08.05.2026 11:45',
-    read: true,
-    type: 'success',
-  },
+  { id: 1, title: 'Срок действия патента', desc: 'Иванов А.Р. - 15.05.2026', date: '12.05.2026', read: false, type: 'warning' },
+  { id: 2, title: 'Просрочен миграционный учет', desc: 'Каримов Б.Ш. - 14.05.2026', date: '14.05.2026', read: false, type: 'danger' },
+  { id: 3, title: 'Документ загружен', desc: 'Ахмедов Р.Ф. - Авансовый платеж', date: '10.05.2026', read: true, type: 'info' },
+  { id: 4, title: 'Задача выполнена', desc: 'Юсупов Д.А. - Трудовой договор', date: '08.05.2026', read: true, type: 'success' },
 ]
 
 const typeStyles = {
-  warning: 'border-l-amber-400 bg-amber-50/30',
-  danger: 'border-l-red-400 bg-red-50/30',
-  info: 'border-l-blue-400 bg-blue-50/30',
-  success: 'border-l-green-400 bg-green-50/30',
-}
-
-const typeDotStyles = {
-  warning: 'bg-amber-500',
-  danger: 'bg-red-500',
-  info: 'bg-blue-500',
-  success: 'bg-green-500',
+  warning: 'border-l-migra-warning bg-[#FFF8F0]',
+  danger: 'border-l-[#E74C3C] bg-[#FFF0F0]',
+  info: 'border-l-migra-secondary bg-[#F0FAF8]',
+  success: 'border-l-green-500 bg-[#F0FFF4]',
 }
 
 export default function NotificationsPage() {
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div>
-          <h2 className="text-3xl font-bold text-slate-900">Уведомления</h2>
-          <p className="text-slate-500 mt-1">
-            Центр уведомлений системы
-          </p>
-        </div>
-        <button className="px-5 py-3 rounded-2xl border border-slate-300 hover:bg-slate-50 transition text-sm">
-          Отметить все как прочитанные
-        </button>
+    <div className="space-y-4">
+      <div className="flex justify-between items-center">
+        <h2 className="text-[28px] font-bold text-[#1F1F1F]">Уведомления</h2>
+        <button className="h-[38px] px-4 border border-migra-border rounded-[2px] text-sm hover:bg-gray-50">Отметить все прочитанными</button>
       </div>
 
-      <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden divide-y divide-slate-100">
-        {notifications.map((notif) => (
-          <div
-            key={notif.id}
-            className={`p-5 border-l-4 transition hover:bg-slate-50/50 ${typeStyles[notif.type]} ${notif.read ? 'opacity-75' : ''}`}
-          >
-            <div className="flex items-start gap-4">
-              <div className={`w-3 h-3 rounded-full mt-1.5 flex-shrink-0 ${typeDotStyles[notif.type]} ${notif.read ? 'opacity-40' : ''}`}></div>
-              <div className="flex-1">
-                <div className="flex items-center justify-between gap-3">
-                  <h4 className={`text-sm ${notif.read ? 'text-slate-600' : 'font-semibold text-slate-900'}`}>
-                    {notif.title}
-                  </h4>
-                  {!notif.read && (
-                    <span className="px-2 py-0.5 bg-slate-900 text-white text-xs rounded-full flex-shrink-0">Новое</span>
-                  )}
-                </div>
-                <p className="text-sm text-slate-600 mt-1 leading-relaxed">{notif.description}</p>
-                <p className="text-xs text-slate-400 mt-2">{notif.date}</p>
+      <div className="bg-white border border-migra-border rounded-[2px] divide-y divide-[#ECECEC]">
+        {notifications.map((n) => (
+          <div key={n.id} className={`flex items-start gap-3 p-4 border-l-4 ${typeStyles[n.type]}`}>
+            <div className={`w-2 h-2 rounded-full mt-1.5 flex-shrink-0 ${
+              n.type === 'warning' ? 'bg-migra-warning' : n.type === 'danger' ? 'bg-red-500' : n.type === 'info' ? 'bg-migra-secondary' : 'bg-green-500'
+            } ${n.read ? 'opacity-30' : ''}`} />
+            <div className="flex-1">
+              <div className="flex justify-between">
+                <h3 className={`text-sm ${n.read ? 'text-gray-500' : 'font-semibold text-gray-800'}`}>{n.title}</h3>
+                {!n.read && <span className="text-xs bg-migra-warning text-white px-1.5 py-0.5 rounded-full">Новое</span>}
               </div>
+              <p className="text-sm text-gray-800 mt-1">{n.desc}</p>
+              <p className="text-xs text-gray-500 mt-2">{n.date}</p>
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Пагинация */}
-      <div className="flex items-center justify-between bg-white rounded-3xl border border-slate-200 shadow-sm px-6 py-4">
-        <p className="text-sm text-slate-500">Показано 4 из 12 уведомлений</p>
-        <div className="flex gap-2">
-          <button className="px-3 py-2 rounded-xl border border-slate-300 text-sm hover:bg-slate-50 transition disabled:opacity-50" disabled>Назад</button>
-          <button className="px-3 py-2 rounded-xl bg-slate-900 text-white text-sm">1</button>
-          <button className="px-3 py-2 rounded-xl border border-slate-300 text-sm hover:bg-slate-50 transition">2</button>
-          <button className="px-3 py-2 rounded-xl border border-slate-300 text-sm hover:bg-slate-50 transition">Вперед</button>
-        </div>
       </div>
     </div>
   )
