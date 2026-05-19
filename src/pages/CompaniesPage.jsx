@@ -14,44 +14,67 @@ export default function CompaniesPage() {
           <h2 className="text-[28px] font-bold text-[#1F1F1F]">Компании</h2>
           <p className="text-[12px] text-gray-500 mt-1">Управление организациями — 5 компаний</p>
         </div>
-        <button className="h-[38px] px-6 bg-[#256F63] text-white rounded-[2px] text-sm font-medium hover:bg-[#2E8B7B] transition">Добавить компанию</button>
+        <button className="h-[38px] px-6 bg-[#256F63] text-white rounded-[2px] text-sm font-medium transition">
+          Добавить компанию
+        </button>
       </div>
 
-      <div className="bg-white border border-migra-border rounded-[2px] px-4 py-3">
-        <input placeholder="Поиск по названию, ИНН..." className="w-full h-[36px] border border-migra-border rounded-[2px] px-3 text-sm outline-none focus:border-migra-secondary" />
+      <div className="bg-white border border-[#DCDCDC] rounded-[2px] px-4 py-3">
+        <input
+          placeholder="Поиск по названию, ИНН..."
+          className="w-full h-[36px] border border-[#DCDCDC] rounded-[2px] px-3 text-sm outline-none focus:border-[#2E8B7B]"
+        />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* Адаптивная сетка: одна колонка на мобильных, две на больших экранах */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {companies.map((c) => (
-          <div key={c.id} className={`bg-white border rounded-[2px] p-5 ${c.status === 'Закрыта' ? 'border-[#ECECEC] opacity-60' : 'border-migra-border'}`}>
+          <div
+            key={c.id}
+            className={`bg-white border rounded-[2px] p-5 flex flex-col ${
+              c.status === 'Закрыта' ? 'border-[#ECECEC] opacity-60' : 'border-[#DCDCDC]'
+            }`}
+          >
             <div className="flex justify-between items-start mb-4">
               <div>
                 <h3 className="text-lg font-semibold text-gray-800">{c.name}</h3>
                 <p className="text-sm text-gray-500">ИНН: {c.inn}</p>
               </div>
-              <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
-                c.status === 'Активна' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-600'
-              }`}>{c.status}</span>
+              <span
+                className={`px-2 py-0.5 rounded-full text-xs font-medium ${
+                  c.status === 'Активна' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-600'
+                }`}
+              >
+                {c.status}
+              </span>
             </div>
-            <div className="space-y-2 text-sm">
+
+            <div className="space-y-2 text-sm flex-1">
               <div className="flex justify-between">
                 <span className="text-gray-500">Сотрудников:</span>
                 <span className="font-medium">{c.employees}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-500">Ответственный:</span>
-                <span>{c.responsible}</span>
+                <span className="text-right">{c.responsible}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-500">Адрес:</span>
-                <span className="text-right max-w-[60%]">{c.address}</span>
+                <span className="text-gray-500 flex-shrink-0">Адрес:</span>
+                <span className="text-right ml-2 break-words">{c.address}</span>
               </div>
             </div>
-            <div className="flex gap-2 mt-4">
-              <button className="h-[38px] px-4 bg-migra-secondary text-white rounded-[2px] text-sm hover:bg-[#256F63]">Открыть</button>
-              <button className="h-[38px] px-4 border border-migra-border rounded-[2px] text-sm hover:bg-gray-50">Редактировать</button>
+
+            <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-[#ECECEC]">
+              <button className="h-[38px] px-4 bg-[#256F63] text-white rounded-[2px] text-sm transition">
+                Открыть
+              </button>
+              <button className="h-[38px] px-4 border border-[#DCDCDC] rounded-[2px] text-sm hover:bg-gray-50 transition">
+                Редактировать
+              </button>
               {c.status === 'Активна' && (
-                <button className="h-[38px] px-4 border border-migra-warning text-migra-warning rounded-[2px] text-sm hover:bg-[#FFF3E0]">Закрыть</button>
+                <button className="h-[38px] px-4 border border-[#F39A32] text-[#F39A32] rounded-[2px] text-sm hover:bg-[#FFF3E0] transition">
+                  Закрыть
+                </button>
               )}
             </div>
           </div>
