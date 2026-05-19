@@ -21,7 +21,7 @@ export default function TasksPage() {
           <h2 className="text-[28px] font-bold text-[#1F1F1F]">Задачи</h2>
           <p className="text-[12px] text-gray-500">Контроль сроков документов</p>
         </div>
-        <button className="h-[38px] px-6 bg-migra-secondary text-white rounded-[2px] text-sm hover:bg-[#256F63]">Экспорт XLS</button>
+        <button className="h-[38px] px-6 bg-[#256F63] text-white rounded-[2px] text-sm hover:bg-[#2E8B7B]">Экспорт XLS</button>
       </div>
       <div className="bg-white border border-migra-border rounded-[2px] px-4 py-4 flex flex-wrap gap-3">
         <input placeholder="Поиск..." className="h-[36px] border border-migra-border rounded-[2px] px-3 text-sm flex-1 min-w-[200px] outline-none focus:border-migra-secondary" />

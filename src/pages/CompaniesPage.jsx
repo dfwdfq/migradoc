@@ -14,7 +14,7 @@ export default function CompaniesPage() {
           <h2 className="text-[28px] font-bold text-[#1F1F1F]">Компании</h2>
           <p className="text-[12px] text-gray-500 mt-1">Управление организациями — 5 компаний</p>
         </div>
-        <button className="h-[38px] px-6 bg-migra-secondary text-white rounded-[2px] text-sm font-medium hover:bg-[#256F63] transition">Добавить компанию</button>
+        <button className="h-[38px] px-6 bg-[#256F63] text-white rounded-[2px] text-sm font-medium hover:bg-[#2E8B7B] transition">Добавить компанию</button>
       </div>
 
       <div className="bg-white border border-migra-border rounded-[2px] px-4 py-3">
