@@ -7,7 +7,7 @@ export default {
       colors: {
         migra: {
           primary: '#1F655B',
-          secondary: '#2E8B7B',
+          secondary: '#256F63',   // тот самый "hover-цвет", теперь основной
           accent: '#9FC8BE',
           border: '#DCDCDC',
           bg: '#F3F3F3',

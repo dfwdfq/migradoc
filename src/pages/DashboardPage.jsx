@@ -23,8 +23,8 @@ export default function DashboardPage() {
             placeholder="Поиск задач"
             className="h-[36px] border border-migra-border rounded-[2px] px-3 text-sm w-64 outline-none focus:border-migra-secondary"
           />
-          <button className="h-[38px] px-6 bg-migra-secondary text-white rounded-[2px] text-sm font-medium hover:bg-[#256F63] transition">
-            Добавить сотрудника
+            <button className="h-[38px] px-6 bg-[#256F63] text-white rounded-[2px] text-sm font-medium transition hover:bg-[#2E8B7B]">
+            Добавить сотрудника 
           </button>
         </div>
       </div>
@@ -69,7 +69,7 @@ export default function DashboardPage() {
                 <p className="text-sm text-migra-warning">Срок окончания: {task.expires}</p>
               </div>
               <div className="flex gap-2">
-                <button className="h-[38px] px-4 bg-migra-secondary text-white rounded-[2px] text-sm hover:bg-[#256F63]">Загрузить</button>
+                <button className="h-[38px] px-4 bg-[#256F63] text-white rounded-[2px] text-sm hover:bg-[#2E8B7B]">Загрузить</button>
                 <button className="h-[38px] px-4 border border-migra-border rounded-[2px] text-sm hover:bg-gray-50">Карточка</button>
                 <button className="h-[38px] px-4 border border-migra-warning text-migra-warning rounded-[2px] text-sm hover:bg-[#FFF3E0]">Приказ</button>
               </div>
