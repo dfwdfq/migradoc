@@ -24,7 +24,7 @@ export default function EmployeesPage() {
         <div className="flex gap-2">
           <button className="h-[38px] px-4 border border-migra-border rounded-[2px] text-sm hover:bg-gray-50">Импорт</button>
           <button className="h-[38px] px-4 border border-migra-border rounded-[2px] text-sm hover:bg-gray-50">Экспорт XLS</button>
-          <button className="h-[38px] px-6 bg-migra-secondary text-white rounded-[2px] text-sm font-medium hover:bg-[#256F63] transition">Добавить сотрудника</button>
+          <button className="h-[38px] px-6 bg-[#256F63] text-white rounded-[2px] text-sm font-medium hover:bg-[#2E8B7B] transition">Добавить сотрудника</button>
         </div>
       </div>
 
